@@ -6,6 +6,15 @@ $contentEffectMoveRightDuration: 500ms;
   contentEffectMoveRightDuration: $contentEffectMoveRightDuration;
 }
 
+.navigation {
+  perspective: 1500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 /* Menu */
 .menu {
   position: absolute;
@@ -13,10 +22,6 @@ $contentEffectMoveRightDuration: 500ms;
   top: 50%;
   transform: translate(-100%, -50%);
   z-index: 100;
-}
-
-.menu-init {
-  
 }
 
 .menu-appear {
@@ -38,34 +43,26 @@ $contentEffectMoveRightDuration: 500ms;
 
 /* Content */
 .content {
-  position: relative;
-  /* transition: all is correct here, DON'T move it :-) */
-  /*transition: all $contentEffectMoveRightDuration ease-in;*/
-}
-
-.open {
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-
-  /* Menu */
-  /*
-  .menu {
-    &.effect-move-right {
-      opacity: 1;
-      transform: translate(0%, -50%);
-    }
-  }
-  */
-
-  /* Content */
-  .content {
-    &.effect-move-right {
-      background: red;
-      transform: scale3d(0.8, 0.8, 0.8) translateY(50%) translateX(20%) rotateY(-45deg);
-    }
-  }
 }
 
+.content-appear {
+  background: red;
+  /* transform: scale3d(0.8, 0.8, 0.8) translateY(1.5%) translateZ(6000px) translateX(20%) rotateY(-45deg); */
+  transform: translateZ(-1500px) translateX(30%) rotateY(-45deg);
+}
+
+.content-leave {
+  /* transform: scale3d(1, 1, 1) translateY(0) translateX(0) rotateY(0); */
+  transform: translateZ(0) translateX(0) rotateY(0);
+
+}
+
+.content-end {
+  background: transparent;
+  top: 0;
+}

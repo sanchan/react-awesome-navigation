@@ -35,6 +35,8 @@ class App extends React.Component {
         content={Content}
         enterDuration={'500ms'}
         leaveDuration={'500ms'}
+        navigationBackground={'#b8b6b4'}
+        contentBackground={'#FFF'}
       />
     );
   }
