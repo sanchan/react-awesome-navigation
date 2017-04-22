@@ -1,0 +1,22 @@
+@keyframes backgroundAnimation{
+  0%{
+    background-position: 0 0;
+  }
+  100%{
+    background-position: 100% 0;
+  }
+}
+
+.animated-background {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: backgroundAnimation;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #dadada 0%, #eee 50%, #dadada 100%);
+  background-size: 50%;
+  height: 30px;
+  width: 100%;
+  position: relative;
+}

@@ -1,0 +1,5 @@
+{
+ "private": true,
+ "name": "AwesomePlaceholder",
+ "main": "./index.js"
+}

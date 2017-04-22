@@ -1,0 +1,5 @@
+{
+ "private": true,
+ "name": "react-awesome-navigation",
+ "main": "./index.js"
+}
