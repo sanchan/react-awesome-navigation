@@ -1,7 +1,7 @@
 import React                from 'react'
 import cx                   from 'classnames'
 import { Navigation}        from 'components/react-awesome-navigation'
-import styles               from './App.scss'
+import styles               from './styles.scss'
 
 class App extends React.Component {
   constructor(props) {
