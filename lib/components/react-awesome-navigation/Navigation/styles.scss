@@ -53,16 +53,18 @@ $contentEffectMoveRightDuration: 500ms;
 .content-appear {
   background: red;
   /* transform: scale3d(0.8, 0.8, 0.8) translateY(1.5%) translateZ(6000px) translateX(20%) rotateY(-45deg); */
-  transform: translateZ(-1500px) translateX(30%) rotateY(-45deg);
+  transform: translateZ(-1500px) translateX(75%) rotateY(-45deg);
+  overflow: hidden;
 }
 
 .content-leave {
   /* transform: scale3d(1, 1, 1) translateY(0) translateX(0) rotateY(0); */
   transform: translateZ(0) translateX(0) rotateY(0);
-
+  overflow: hidden;
 }
 
 .content-end {
   background: transparent;
   top: 0;
+  overflow: hidden;
 }
