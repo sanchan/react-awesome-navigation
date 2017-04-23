@@ -20,23 +20,27 @@ $contentEffectMoveRightDuration: 500ms;
   position: absolute;
   opacity: 0;
   top: 50%;
+  left: -10%;
   transform: translate(-100%, -50%);
   z-index: 100;
 }
 
 .menu-appear {
   opacity: 1;
+  left: 25%;
   transform: translate(0%, -50%);
 }
 
 .menu-leave {
   opacity: 1;
+  left: 0;
   transform: translate(-100%, -50%);
 }
 
 .menu-end {
   opacity: 0;
   top: 50%;
+  left: 0;
   transform: translate(-100%, -50%);
   z-index: 100;
 }

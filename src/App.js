@@ -1,6 +1,6 @@
 import React                from 'react'
 import cx                   from 'classnames'
-import { Navigation}        from 'components/react-awesome-navigation'
+import { Navigation, Menu } from 'components/react-awesome-navigation'
 import styles               from './styles.scss'
 
 class App extends React.Component {
@@ -18,11 +18,6 @@ class App extends React.Component {
   }
 
   render() {
-    const Menu = (
-      <div>
-        Menu
-      </div>
-    )
 
     const Content = (
       <div className={styles.content}>
@@ -72,7 +67,11 @@ class App extends React.Component {
     return (
       <Navigation
         open={this.state.open}
-        menu={Menu}
+        menu={
+          <Menu>
+            <Menu.Item>aaa</Menu.Item>
+          </Menu>
+        }
         content={Content}
         enterDuration={'800ms'}
         leaveDuration={'300ms'}
