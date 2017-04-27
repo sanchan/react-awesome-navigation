@@ -1,10 +1,10 @@
 {
-  "name": "react-awesome-placeholder",
-  "version": "0.1.1",
+  "name": "react-awesome-navigation",
+  "version": "0.1.0",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sanchan/react-awesome-placeholder"
+    "url": "https://github.com/sanchan/react-awesome-navigation"
   },
   "keywords": [
     "react-component",
@@ -14,7 +14,7 @@
   "author": {
     "name": "Danilo Vladimiro Borek",
     "email": "danilo.dev@gmail.com",
-    "url": "https://github.com/sanchan/react-awesome-placeholder"
+    "url": "https://github.com/sanchan/react-awesome-navigation"
   },
   "license": "MIT",
   "devDependencies": {
