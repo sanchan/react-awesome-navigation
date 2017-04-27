@@ -1,3 +1,14 @@
 .item {
+  cursor: pointer;
+  font-weight: 300;
   list-style: none;
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #fff;
+  transition: all 200ms ease-in;
+  
+  &:hover {
+    color: #ffdccd;
+    padding-left: .8em;
+  }
 }

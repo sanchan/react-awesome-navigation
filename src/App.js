@@ -6,19 +6,29 @@ import styles               from './styles.scss'
 class App extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       open: false
     }
   }
 
-  toggleMenu() {
+  toggleMenu = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     this.setState((prevState, props) => ({
       open: !this.state.open
     }))
   }
 
-  render() {
+  handleClose = (e) => {
+    this.setState((prevState, props) => ({
+      open: false
+    }))
+    console.log("click", this.state);
+  }
 
+  render() {
     const Content = (
       <div className={styles.content}>
         <header>
@@ -34,7 +44,7 @@ class App extends React.Component {
         <div className={styles.body}>
           <div className={styles["left-col"]}>
             <div>
-              <button className={styles["show-menu-btn"]} onClick={this.toggleMenu.bind(this)}>Show Menu</button>
+              <button className={styles["show-menu-btn"]} onClick={this.toggleMenu}>Show Menu</button>
             </div>
             <p>
               Click on this button to see the content being pushed away in 3D to reveal a navigation or other items.
@@ -67,18 +77,26 @@ class App extends React.Component {
     return (
       <Navigation
         open={this.state.open}
+        onClose={this.handleClose}
         menu={
           <Menu>
-            <Menu.Item>aaa</Menu.Item>
+            <Menu.Item className="typcn typcn-home">Home</Menu.Item>
+            <Menu.Item className="typcn typcn-news">News</Menu.Item>
+            <Menu.Item className="typcn typcn-image">Images</Menu.Item>
+            <Menu.Item className="typcn typcn-upload">Uploads</Menu.Item>
+            <Menu.Item className="typcn typcn-star">Favorites</Menu.Item>
+            <Menu.Item className="typcn typcn-mail">Messages</Menu.Item>
+            <Menu.Item className="typcn typcn-lock-closed">Security</Menu.Item>
           </Menu>
         }
         content={Content}
-        enterDuration={'800ms'}
-        leaveDuration={'300ms'}
-        navigationBackground={'#b8b6b4'}
-        contentBackground={'#FFF'}
+        enterDuration="800ms"
+        leaveDuration="300ms"
+        navigationBackground="#b8b6b4"
+        contentBackground="#FFF"
       />
     );
   }
 }
-export default App
+
+export default App;
