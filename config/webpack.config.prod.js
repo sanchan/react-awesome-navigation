@@ -7,6 +7,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var paths = require('./paths');
+let path = require('path');
 var getClientEnvironment = require('./env');
 
 
@@ -78,11 +79,12 @@ module.exports = {
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
     // https://github.com/facebookincubator/create-react-app/issues/290
-    extensions: ['.js', '.json', '.jsx', ''],
+    extensions: ['.css', '.scss', '.js', '.json', '.jsx', ''],
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      'react-native': 'react-native-web'
+      'react-native': 'react-native-web',
+      'components': path.resolve(__dirname, '..', 'lib/components/')
     }
   },
 
@@ -110,6 +112,7 @@ module.exports = {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.css$/,
+          /\.scss$/,
           /\.json$/,
           /\.svg$/
         ],
@@ -122,9 +125,12 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
+        include: [paths.appSrc, paths.lib],
+        exclude: /node_modules/,
         loader: 'babel',
-
+        query: {
+          presets: [ 'es2015', 'stage-0', 'react' ]
+        }
       },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.
@@ -143,6 +149,15 @@ module.exports = {
         loader: ExtractTextPlugin.extract(
           'style',
           'css?importLoaders=1&modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss',
+          extractTextPluginOptions
+        )
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loader: ExtractTextPlugin.extract(
+          'style-loader',
+          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass!postcss-loader',
           extractTextPluginOptions
         )
       },

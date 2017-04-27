@@ -129,6 +129,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: [paths.appSrc, paths.lib],
+        exclude: /node_modules/,
         loader: 'babel',
         query: {
 
